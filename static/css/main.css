@@ -1,0 +1,17 @@
+html {
+    box-sizing: border-box;
+}
+body {
+    background-color: #dfbbbb;
+}
+p {
+    text-indent: 30px;
+}
+.text_header{
+    text-align: center;
+}
+.header {
+    display: flex;
+    background-color: #27cf05;
+    align-items: center;
+}
