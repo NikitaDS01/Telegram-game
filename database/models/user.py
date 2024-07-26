@@ -42,6 +42,7 @@ class User(Actor):
     def health(self) -> int:
         return self.state.current_health
 
+
     ### Работа с предметами
     def get_item(self, data: str | Item) -> Item | None:
         txt = data

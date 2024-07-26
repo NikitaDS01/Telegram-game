@@ -1,4 +1,4 @@
-from database.config import ConfigJSON
+from core.config import ConfigJSON
 from dataclasses import dataclass
 
 @dataclass

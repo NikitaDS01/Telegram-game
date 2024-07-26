@@ -2,6 +2,7 @@ from enum import IntEnum
 
 class TypeAbility(IntEnum):
     Active = 1
+    Passive = 2
 
 class TypeDamage(IntEnum):
     Null = -1

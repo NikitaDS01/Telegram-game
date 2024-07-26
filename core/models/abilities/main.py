@@ -1,5 +1,5 @@
-from database.models.abilities.config import AbilityConfig
-from database.models.abilities.triggers import AbilityTriggers, FactoryAbilityTriggers, FactoryAbilityConsequence
+from core.models.abilities.config import AbilityConfig
+from core.models.abilities.triggers import AbilityTriggers, FactoryAbilityTriggers, FactoryAbilityConsequence
 
 class Ability:
     def __init__(self, config: AbilityConfig) -> None:

@@ -1,4 +1,4 @@
-from database.config import ConfigJSON
+from core.config import ConfigJSON
 from database.models.other import State
 
 class EnemyConfig(ConfigJSON):
@@ -11,7 +11,7 @@ class EnemyConfig(ConfigJSON):
         if value is None: raise ValueError('не существует ключа name')
         return value
     @property
-    def state(self) -> State:
+    def default_state(self) -> State:
         value = self._get('state')
         if value is None: raise ValueError('не существует ключа state')
         return State.to_json(value)

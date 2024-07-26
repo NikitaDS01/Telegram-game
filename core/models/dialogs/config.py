@@ -1,4 +1,4 @@
-from database.config import ConfigJSON
+from core.config import ConfigJSON
 
 class DialogConfig(ConfigJSON):
     def __init__(self, data: dict) -> None:

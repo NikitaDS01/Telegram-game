@@ -1,4 +1,4 @@
-from database.models.dialogs.config import DialogBranchConfig, DialogConfig
+from core.models.dialogs.config import DialogBranchConfig, DialogConfig
 
 class Dialog:
     def __init__(self, config: DialogConfig) -> None:

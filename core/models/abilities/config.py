@@ -1,6 +1,6 @@
-from database.config import ConfigJSON
-from database.type import TypeAbility, TypeDamage
-from database.models.abilities.triggers import OnDamageAbility, OnTestAbility
+from core.config import ConfigJSON
+from core.type import TypeAbility, TypeDamage
+from core.models.abilities.triggers import OnDamageAbility, OnTestAbility
 
 ### класс информации о ability
 class AbilityConfig(ConfigJSON): 

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from database.config import ConfigJSON
+from core.config import ConfigJSON
 from typing import Optional, Any
 from os import path, listdir
 import json

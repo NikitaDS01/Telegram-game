@@ -1,5 +1,5 @@
-from database.models.effects.config import EffectConfig
-from database.models.effects.triggers import EffectTriggers, FactoryEffectTriggers
+from core.models.effects.config import EffectConfig
+from core.models.effects.triggers import EffectTriggers, FactoryEffectTriggers
 
 class Effect:
     def __init__(self, config: EffectConfig) -> None:
