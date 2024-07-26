@@ -1,0 +1,35 @@
+{% extends 'create/base_create.html' %}
+
+{% block create_name %} 
+Создание навыка
+{% endblock %}
+
+{% block option %} 
+<div>
+    <form method="post">
+        <p>
+            <label for="key">* Название навыка: </label>
+            <input type="text" name="key" id="key">
+        </p>
+        <p>
+            <label for="name_a">Игровое название: </label>
+            <input type="text" name="name_a" id="name_a">
+        </p>
+        <p>
+            <label for="name_a">Тип навыка: </label>
+            <select>
+                <option value="type_1">Активный</option>
+                <option value="type_2">Пассивный</option>
+            </select>
+        </p>
+        <input type="submit" value="Отправить"/>
+    </form>
+</div>
+{% endblock %}
+
+{% block to_json %}
+<div class="output-json">
+    <pre><code>
+    </code></pre>
+</div>
+{% endblock %}

@@ -11,6 +11,10 @@ def index():
 def create():
     return render_template("menu_create.html")
 
+@app.route('/form_create/ability')
+def create_ability():
+    return render_template("create/ability_create.html")
+
 
 def start_website():
     app.run(debug=True)
