@@ -1,0 +1,10 @@
+.table-main {
+    width: 100%;
+    text-align: center;
+}
+
+.table-form {
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+}

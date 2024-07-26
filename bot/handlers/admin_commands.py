@@ -6,7 +6,7 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
 from database.requests import get
-from keyboards import reply, pagination
+from bot.keyboards import reply, pagination
 from motor.core import AgnosticDatabase as MDB
 from database.models.report import Report
 

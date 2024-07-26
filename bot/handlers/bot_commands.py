@@ -11,7 +11,7 @@ from database.models.user import User
 from database.requests import include, get
 
 from motor.core import AgnosticDatabase as MDB
-from utils.states import StateReport
+from bot.utils.states import StateReport
 
 router = Router()
 

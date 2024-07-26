@@ -1,6 +1,6 @@
 from database.models.abilities.config import AbilityConfig
 from database.models.abilities.main import Ability
-from website import start_website
+from web.website import start_website
 
 def test1():
     dict_trigger = {

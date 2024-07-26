@@ -87,6 +87,7 @@ class OnDamageAbility(AbilityTriggers):
         if value is None: raise ValueError('не существует ключа time')
         return value
 
+
 class OnTestAbility(AbilityTriggers):
     def __init__(self, 
                  name: str,

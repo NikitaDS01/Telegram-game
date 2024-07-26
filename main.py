@@ -1,6 +1,6 @@
 import asyncio
 from loguru import logger as log
-from handlers import setup_routers
+from bot.handlers import setup_routers
 from aiogram import Bot
 from aiogram import Dispatcher
 from motor.motor_asyncio import AsyncIOMotorClient
