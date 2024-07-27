@@ -1,4 +1,17 @@
+from dataclasses import dataclass
 from core.config import ConfigJSON
+
+@dataclass
+class ItemSetting:
+    max_count: int = 1
+
+
+    @staticmethod
+    def to_json(data: dict):
+        return ItemSetting(
+            max_count = data.get('max_count')
+        )
+
 
 class ItemConfig(ConfigJSON):
     """
@@ -23,10 +36,10 @@ class ItemConfig(ConfigJSON):
     
 
     @property
-    def max_count(self) -> int:
-        value = self._get('max_count')
-        if value is None: return 1
-        return value
+    def setting(self) -> ItemSetting:
+        value = self._get('setting')
+        if value is None: raise ValueError('не существует ключа setting')
+        return ItemSetting.to_json(value)
     
     
     @property

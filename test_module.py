@@ -1,31 +1,37 @@
-from database.models.abilities.config import AbilityConfig
-from database.models.abilities.main import Ability
-from web.website import start_website
+from core.models.triggers.config import ConfigTrigger
+from core.models.triggers.trigger import FactoryTriggers
+from core.models.abilities.main import Ability
+from core.models.abilities.config import AbilityConfig, CreateAbilityConfig
 
 def test1():
-    dict_trigger = {
-        "name": "OnDamageAbility",
+    cons1 = {
+        "name": "Print",
         "property": {
-            "time": 1
+            "message": "Test world!"
+        }
+    }
+    cons2 = {
+        "name": "Print",
+        "property": {
+            "message": "Просто тест!"
+        }
+    }
+    dict_ = {
+        "name": "OnDamage",
+        "property": {
+            "damage": 100
         },
-        "consequence": [
-            {
-                "name": "Print",
-                "property": {
-                    "message": "Hello World!"}
-                }
-            ]
+        "consequences": [
+            cons1,
+            cons2
+        ]
     }
-    dict_ability = {
-        "name": "test_ability_1",
-        "game_name": "Тестовый навык",
-        "type": "active",
-        "triggers": [dict_trigger]
-    }
-    config = AbilityConfig(dict_ability)
-    abil = Ability(config)
-    print(abil.__dict__)
-    abil.on_damage()
+    trigger_config = ConfigTrigger(dict_)
+    ability_config = CreateAbilityConfig.create("test_1", "Тестовое", "1", [trigger_config])
+    ability = Ability(ability_config)
+    print(ability.__dict__)
+    ability.on_damage(150)
+    
     #registry._write(branch1)
 
 # Point(x=1436, y=519)
@@ -34,4 +40,4 @@ def test1():
 
     
 if(__name__ == "__main__"):
-    start_website()
+    test1()
