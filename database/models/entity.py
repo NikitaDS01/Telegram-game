@@ -1,6 +1,7 @@
-from core.models.entities.main import Enemy
+from dataclasses import dataclass
+
 from database.models.other import Actor
 
-class EnemyBattle(Actor):
-    def __init__(self) -> None:
-        pass
+@dataclass
+class Enemy(Actor):
+    key_enemy: str
