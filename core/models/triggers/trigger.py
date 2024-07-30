@@ -1,13 +1,13 @@
 from abc import ABC
 
 from core.models.triggers.consequence import FactoryConsequence
-from core.models.triggers.config import ConfigTrigger
+from core.models.triggers.config import TriggerConfig
 
 class BaseTrigger(ABC):
     """
     Класс триггера
     """
-    def __init__(self, config: ConfigTrigger) -> None:
+    def __init__(self, config: TriggerConfig) -> None:
         self.name = config.name
         self.property = config.properties 
         self.consequences = [FactoryConsequence.get_config(conseq) for conseq in config.consequences]
@@ -29,7 +29,7 @@ class BaseTrigger(ABC):
 
 class FactoryTriggers:
     @staticmethod
-    def get_config(config: ConfigTrigger) -> BaseTrigger | None:
+    def get_config(config: TriggerConfig) -> BaseTrigger | None:
         triggers = BaseTrigger.__subclasses__()
         for trigger in triggers:
             if config.name == trigger.__name__:
@@ -44,7 +44,7 @@ class FactoryTriggers:
         triggers = BaseTrigger.__subclasses__()
         for trigger in triggers:
             if name == trigger.__name__:
-                return trigger(ConfigTrigger({
+                return trigger(TriggerConfig({
                     "name": name, 
                     "property": property, 
                     "consequences": data
@@ -53,7 +53,7 @@ class FactoryTriggers:
     
 
 class OnDamage(BaseTrigger):
-    def __init__(self, config: ConfigTrigger) -> None:
+    def __init__(self, config: TriggerConfig) -> None:
         super().__init__(config)
 
     @property

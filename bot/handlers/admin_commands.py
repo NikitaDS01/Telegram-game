@@ -19,7 +19,7 @@ __str_count_report = "Количество баг-репорт: {0}"
 
 ### Команда админ-панели
 @router.callback_query(F.data == "return_admin_panel_1")
-@router.message(Command("admin"))
+@router.message(F.text, Command("admin"))
 async def fill_report(message: Message | CallbackQuery):
     if(isinstance(message, Message)):
         await message.answer(

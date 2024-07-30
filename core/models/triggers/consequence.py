@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 
-from core.models.triggers.config import ConfigConsequence
+from core.models.triggers.config import ConsequenceConfig
 
 class BaseConsequence(ABC):
     """
     Класс действий для триггера
     """
-    def __init__(self, config: ConfigConsequence) -> None:
+    def __init__(self, config: ConsequenceConfig) -> None:
         self.name = config.name
         self.property = config.properties 
 
@@ -30,7 +30,7 @@ class BaseConsequence(ABC):
 
 class FactoryConsequence:
     @staticmethod
-    def get_config(config: ConfigConsequence) -> BaseConsequence | None:
+    def get_config(config: ConsequenceConfig) -> BaseConsequence | None:
         consequences = BaseConsequence.__subclasses__()
         for consequence in consequences:
             if config.name == consequence.__name__:
@@ -43,7 +43,7 @@ class FactoryConsequence:
         consequences = BaseConsequence.__subclasses__()
         for consequence in consequences:
             if name == consequence.__name__:
-                return consequence(ConfigConsequence({
+                return consequence(ConsequenceConfig({
                     "name": name, 
                     "property": property
                 }))
@@ -52,7 +52,7 @@ class FactoryConsequence:
 
 
 class Print(BaseConsequence):
-    def __init__(self, config: ConfigConsequence) -> None:
+    def __init__(self, config: ConsequenceConfig) -> None:
         super().__init__(config)
 
     @property

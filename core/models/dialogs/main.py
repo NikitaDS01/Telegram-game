@@ -18,7 +18,6 @@ class Dialog:
         return -1
 
 class DialogBranch:
-
     def __init__(self, config: DialogBranchConfig) -> None:
         self.name = config.name
         self.answers = dict[str, Dialog]()

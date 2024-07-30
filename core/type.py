@@ -1,5 +1,8 @@
 from enum import IntEnum
 
+class TypeEffect(IntEnum):
+    Null = -1
+
 class TypeAbility(IntEnum):
     Active = 1
     Passive = 2
