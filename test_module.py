@@ -1,6 +1,5 @@
 from database.models.abilities.config import AbilityConfig
 from database.models.abilities.main import Ability
-from web.website import start_website
 
 def test1():
     dict_trigger = {
@@ -34,4 +33,5 @@ def test1():
 
     
 if(__name__ == "__main__"):
-    start_website()
+    pass
+    #start_website()
