@@ -1,4 +1,4 @@
-from database.models.dialogs.config import DialogBranchConfig, DialogConfig
+from core.models.dialogs.config import DialogBranchConfig, DialogConfig
 
 class Dialog:
     def __init__(self, config: DialogConfig) -> None:
@@ -18,7 +18,6 @@ class Dialog:
         return -1
 
 class DialogBranch:
-
     def __init__(self, config: DialogBranchConfig) -> None:
         self.name = config.name
         self.answers = dict[str, Dialog]()

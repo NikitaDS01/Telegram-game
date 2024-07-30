@@ -1,23 +1,12 @@
 from dataclasses import dataclass
-from database.models.effects.config import EffectConfig
-from database.models.abilities.config import AbilityConfig
 
-### класс Свойств
-@dataclass
-class Property:
-    name: str
-    value: int
-
-    @staticmethod
-    def convert(json:dict):
-        return Property(
-            name = json.get('name'),
-            value = json.get('value'),
-        )
+from database.models.config import Effect
 
 @dataclass
-### Класс для работы с основными характеристиками
 class State:
+    """
+    Класс для работы с основными характеристиками
+    """
     level: int
     max_health: int
     current_health: int
@@ -42,13 +31,13 @@ class State:
 @dataclass
 class Actor:
     state: State # хар-ки персонажа
-    current_effect: list[EffectConfig] # Какие эффекты действуют
-    passiv_abilities: list[AbilityConfig] # Список пассивных возможностей
-    active_abilities: list[AbilityConfig] # Список активных возможностей
+    current_effect: list[Effect] # Какие эффекты действуют
+    passiv_abilities: list[str] # Список пассивных возможностей
+    active_abilities: list[str] # Список активных возможностей
 
     ### Работа с ability
 
-    def add_ability(self, data: AbilityConfig) -> bool:
+    def add_ability(self, data: str) -> bool:
         if data.type == "Passive":
             self.passiv_abilities.append(data)
         elif data.type == "Active":
@@ -56,5 +45,5 @@ class Actor:
 
     ### Работа с эффектами
 
-    def add_effect(self, data: EffectConfig) -> bool:
-        self.current_effect.append(data)
+    def add_effect(self, data: str) -> bool:
+        self.current_effect.append(Effect(data, 0))
